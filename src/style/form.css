@@ -1,0 +1,291 @@
+/* 
+! =======================
+!     start wrapper 
+! =======================
+*/
+#formWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 40;
+    display: none;
+}
+
+/* 
+! =======================
+!     end wrapper 
+! =======================
+*/
+
+
+/* 
+* =======================
+*     start content 
+* =======================
+*/
+#myForm {
+    position: relative;
+    margin: 50px auto;
+    width: calc(100% - 40px);
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: var(--radius);
+}
+
+/* cancel order btn */
+#cancelOrderBtn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+#cancelOrderBtn>span {
+    position: absolute;
+}
+
+#cancelOrderBtn>span:first-child {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--error);
+    border-radius: 50%;
+}
+
+#cancelOrderBtn>span:nth-child(2),
+#cancelOrderBtn>span:nth-child(3) {
+    width: 2px;
+    height: 15px;
+    background: var(--white-color);
+    top: 7.5px;
+    left: 14px;
+}
+
+#cancelOrderBtn>span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+#cancelOrderBtn>span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* hint */
+#formHint p:first-child {
+    background: var(--main-background-color);
+    text-transform: capitalize;
+    text-align: center;
+    color: var(--white-color);
+    padding: 10px;
+    border-radius: var(--radius);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#formHint p:last-child {
+    background: var(--hint-color);
+    color: var(--white-color);
+    padding: 5px 10px;
+    border-radius: var(--radius);
+    text-align: center;
+    font-size: 15px;
+}
+
+#amountToBePaid {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* container */
+#myForm>div {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* validation */
+.validity {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width: 38px;
+    height: 38px;
+    background: var(--white-color);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.validity::before {
+    /* error */
+    content: "\2718";
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: var(--error);
+    line-height: 40px;
+    text-align: center;
+}
+
+.validity::after {
+    /* success */
+    content: "\2714";
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: var(--success);
+    line-height: 40px;
+    text-align: center;
+    display: none;
+}
+
+/* label */
+#myForm>div label {
+    display: block;
+    margin-bottom: 9px;
+    text-transform: capitalize;
+    color: var(--main-text-color);
+}
+
+/* input */
+#myForm>div input {
+    width: 100%;
+    height: 40px;
+    padding: 0 40px 0 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background: var(--white-color);
+}
+
+#myForm>div input:valid~.validity::before {
+    display: none;
+}
+
+#myForm>div input:valid~.validity::after {
+    display: block;
+}
+
+/* button */
+#myForm button[type='submit'] {
+    width: 100%;
+    height: 40px;
+    background: var(--success);
+    border: 0;
+    color: var(--white-color);
+    text-transform: capitalize;
+    border-radius: var(--radius);
+    font-weight: bold;
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#myForm button[type='submit']:focus {
+    outline: none;
+    box-shadow: 0 0 0px 2px var(--main-text-color);
+}
+
+/* start notification */
+/* !main wrapper */
+#formNotify {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 50;
+    display: none;
+}
+
+/* container */
+#success,
+#error {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 280px;
+    background: var(--white-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+}
+
+#success>div,
+#error>div {
+    margin-bottom: 10px !important;
+}
+
+/* img */
+#success .formNotifyImg,
+#error .formNotifyImg {
+    width: 100px;
+    margin: auto;
+}
+
+#success .formNotifyImg img,
+#error .formNotifyImg img {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+/* msg */
+#success .formNotifyMsg h1,
+#error .formNotifyMsg h1 {
+    font-size: 16px;
+}
+
+#success .formNotifyMsg p,
+#error .formNotifyMsg p {
+    font-size: 15px;
+    color: var(--sub-text-color);
+}
+
+/* invoice */
+#success .formNotifyInvoice button {
+    color: var(--success);
+    text-decoration: underline;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* button */
+.successBtn,
+.errorBtn {
+    display: block;
+    margin: auto;
+    width: 100px;
+    background: var(--success);
+    padding: 10px;
+    border-radius: var(--radius);
+    color: var(--white-color);
+    border: 0;
+    cursor: pointer;
+}
+
+.errorBtn {
+    background: var(--error);
+}
+
+#formNotify>button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--main-text-color);
+}
+
+/* end notification */
+
+/*
+* =======================
+*     end content 
+* =======================
+*/

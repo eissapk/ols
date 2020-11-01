@@ -1,0 +1,28 @@
+#offersLoader {
+ position: relative;
+ height: 409px;
+ background-color: var(--white-color);
+}
+
+#offersLoader span {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ width: 50px;
+ height: 50px;
+ border-radius: 50%;
+ border: 2px solid var(--main-background-color);
+ border-bottom-color: transparent;
+ animation: offersLoader 1s ease infinite;
+}
+
+@keyframes offersLoader {
+ from {
+  transform: translate(-50%, -50%) rotate(0deg);
+ }
+
+ to {
+  transform: translate(-50%, -50%) rotate(360deg);
+ }
+}

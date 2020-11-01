@@ -1,0 +1,362 @@
+/* 
+! =======================
+!     start wrapper 
+! =======================
+*/
+header {
+  grid-area: header;
+  width: 100%;
+  background: var(--white-color);
+  margin-top: 100px;
+  overflow: hidden;
+}
+
+/* 
+! =======================
+!     end wrapper 
+! =======================
+*/
+
+/* 
+* =======================
+*     start content 
+* =======================
+*/
+
+/* start carousel */
+#carousel {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 100px);
+  background: var(--header-linear);
+  overflow: hidden;
+}
+
+/* each slide container */
+.carousel-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+
+/* text */
+.carousel-content .carousel-text {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  color: var(--white-color);
+  font-size: 25px;
+  font-weight: bold;
+  padding: 0 10px;
+  opacity: 0;
+}
+
+/* images */
+.carousel-content .carousel-img {
+  position: absolute;
+  opacity: 0;
+}
+
+.carousel-content .carousel-img img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* *laptop */
+.carousel-content:nth-child(1) .carousel-img {
+  bottom: 30px;
+  left: 20px;
+  margin: auto;
+  width: 500px;
+}
+
+/* *iphone */
+.carousel-content:nth-child(2) .carousel-img {
+  bottom: -50px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 180px;
+}
+
+/* *watch */
+.carousel-content:nth-child(3) .carousel-img {
+  bottom: 30px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 180px;
+}
+
+.active-slide {
+  animation: transSlide 0.6s ease-in-out forwards;
+}
+
+.active-slide-text {
+  animation: transText 0.6s ease-in-out 0.6s forwards;
+}
+
+.active-slide-img {
+  animation: transImg 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes transSlide {
+  from {
+    visibility: hidden;
+  }
+
+  to {
+    visibility: visible;
+  }
+}
+
+@keyframes transText {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes transImg {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes transImg2 {
+  from {
+    opacity: 0;
+    transform: translateY(-40%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+/* dots */
+#carousel-dots {
+  height: 25px;
+  position: relative;
+  left: 50%;
+  right: 0;
+  top: calc(100vh - 80px);
+  transform: translateX(-50%);
+  display: none;
+}
+
+#carousel-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-color);
+  float: left;
+  margin: 8.5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+#carousel-dots .active-dot {
+  background: #fe7142;
+}
+
+/* end carousel */
+
+/* *start offers */
+#offers {
+  position: relative;
+  width: calc(100% - 40px);
+  margin: 0 20px;
+}
+
+/* title */
+#offers > h1 {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  color: var(--sub-text-color);
+  text-transform: capitalize;
+}
+
+/* buttons */
+#offers > button {
+  position: absolute;
+  top: calc(50% + 25px);
+  left: -12.5px;
+  width: 25px;
+  height: 50px;
+  transform: translateY(-50%);
+  background: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  cursor: pointer;
+  z-index: 12;
+}
+
+#offers > button:focus {
+  box-shadow: none;
+}
+
+#offers > button svg {
+  fill: var(--sub-text-color);
+  position: relative;
+  top: 2.5px;
+}
+
+/* next btn */
+#offers > .offers-next {
+  left: initial;
+  right: -12.5px;
+}
+
+/* inner offers */
+#inner-offers {
+  width: 100%;
+  white-space: nowrap;
+  overflow: auto;
+  border-radius: var(--radius);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.move-offers {
+  cursor: grab;
+  box-shadow: 0 0 10px 5px var(--shadow);
+}
+
+/* !start scroll bar */
+/* width */
+#inner-offers::-webkit-scrollbar {
+  height: 2px !important;
+  /* display: none; */
+}
+
+/* Track */
+#inner-offers::-webkit-scrollbar-track {
+  background: var(--border-color);
+  border-radius: var(--radius);
+}
+
+/* Handle */
+#inner-offers::-webkit-scrollbar-thumb {
+  background: var(--sub-text-color);
+  border-radius: var(--radius);
+}
+
+/* !end scroll bar */
+
+#inner-offers > section {
+  display: inline-block;
+  white-space: normal;
+  min-height: 400px;
+  margin-right: 20px;
+}
+
+#inner-offers > section:last-child {
+  margin-right: 0;
+}
+
+/* *end offers */
+
+/* !start categories */
+/* main container */
+#categ-boxes {
+  width: calc(100% - 40px);
+  margin: 50px auto;
+}
+
+/* title */
+#categ-boxes > h1 {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  color: var(--sub-text-color);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+/* boxes container */
+#categ-boxes > section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 270px;
+  grid-gap: 10px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+/* box */
+#categ-boxes > section a {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 165px;
+  /* electric */
+  background-image: url("../img/tabs.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  border-radius: var(--radius);
+  box-shadow: 0 0 3px 1px var(--shadow);
+  user-select: none;
+}
+
+/* electronics */
+#categ-boxes > section a:nth-of-type(2) {
+  background-position: -270px 0;
+}
+
+/* supplies */
+#categ-boxes > section a:nth-of-type(3) {
+  background-position: -540px 0;
+}
+
+/* kitchen */
+#categ-boxes > section a:nth-of-type(4) {
+  background-position: -810px 0;
+}
+
+/* perfume */
+#categ-boxes > section a:nth-of-type(5) {
+  background-position: -1080px 0;
+}
+
+/* text */
+#categ-boxes > section a span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--white-color);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+}
+
+/* !end categories */
+
+/*
+* =======================
+*     end content 
+* =======================
+*/

@@ -1,0 +1,270 @@
+/* 
+! =======================
+!     start wrapper 
+! =======================
+*/
+
+#products-wrapper {
+    grid-area: products;
+    width: 100%;
+    overflow-x: hidden;
+    display: none;
+}
+
+#products {
+    display: grid;
+    width: 100%;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    grid-template-columns: 1fr;
+    grid-gap: 20px 0;
+    justify-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+#loadBtnContainer {
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 
+! =======================
+!     end wrapper 
+! =======================
+*/
+
+
+
+/* 
+* =======================
+*     start content 
+* =======================
+*/
+
+/* load more btn */
+#loadBtnContainer>button {
+    width: 150px;
+    height: 40px;
+    background: var(--main-background-color);
+    border: 0;
+    border-radius: var(--radius);
+    color: var(--white-color);
+    margin: 0 auto 20px;
+    display: block;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+/* start cards */
+#products>section,
+#wps>section,
+#inner-offers>section {
+    width: 280px;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: var(--radius);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    background-color: var(--white-color);
+    overflow: hidden;
+}
+
+/* discount */
+#products>section .discount,
+#wps>section .discount,
+#inner-offers>section .discount {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: var(--error);
+    color: var(--white-color);
+}
+
+/* wish list icon */
+#products>section .wish-icon-con,
+#inner-offers>section .wish-icon-con {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    /* width: 20px; */
+    /* height: 18px; */
+    background: var(--white-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#products>section .wish-icon-con img,
+#inner-offers>section .wish-icon-con img {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* img */
+#products>section .pro-img,
+#wps>section .pro-img,
+#inner-offers>section .pro-img {
+    width: 100%;
+    border-radius: var(--radius);
+}
+
+#products>section .pro-img img,
+#wps>section .pro-img img,
+#inner-offers>section .pro-img img {
+    width: 100%;
+    vertical-align: bottom;
+    border-radius: var(--radius);
+}
+
+/* title */
+#products>section .pro-title,
+#wps>section .pro-title,
+#inner-offers>section .pro-title {
+    margin: 10px 0;
+}
+
+#products>section .pro-title::first-letter,
+#wps>section .pro-title::first-letter,
+#inner-offers>section .pro-title::first-letter {
+    text-transform: uppercase;
+}
+
+/* price */
+#products>section .pro-p .pro-old-p,
+#wps>section .pro-p .pro-old-p,
+#inner-offers>section .pro-p .pro-old-p {
+    color: var(--sub-text-color);
+    text-decoration: line-through;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* btns */
+#products>section .pro-btns,
+#wps>section .pro-btns,
+#inner-offers>section .pro-btns {
+    position: absolute;
+    bottom: -120px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 0;
+    z-index: 8;
+    box-shadow: 0 0 10px 1px var(--shadow);
+}
+
+
+#products>section .detail-btn,
+#products>section .add-btn,
+#wps>section .detail-btn,
+#wps>section .add-btn,
+#inner-offers>section .detail-btn,
+#inner-offers>section .add-btn {
+    display: block;
+    margin: auto;
+    min-width: 120px;
+    max-width: 200px;
+    background-color: var(--white-color);
+    border: 0;
+    padding: 10px 0;
+    text-transform: capitalize;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+#products>section .detail-btn,
+#wps>section .detail-btn,
+#inner-offers>section .detail-btn {
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    color: var(--sub-text-color);
+}
+
+#products>section .add-btn,
+#wps>section .add-btn,
+#inner-offers>section .add-btn {
+    background: var(--linear-gradient);
+    color: var(--white-color);
+}
+
+#products>section:hover,
+#wps>section:hover,
+#inner-offers>section:hover {
+    box-shadow: 0 0 6px 3px var(--shadow);
+    transition: all 0.5s ease-in-out;
+}
+
+#products>section:hover .pro-btns,
+#wps>section:hover .pro-btns,
+#inner-offers>section:hover .pro-btns {
+    animation: slideToggle1 0.5s ease-in-out 1 forwards;
+}
+
+#products>section:not(:hover),
+#wps>section:not(:hover),
+#inner-offers>section:not(:hover) {
+    box-shadow: none;
+    transition: all 0.5s ease-in-out;
+}
+
+#products>section:not(:hover) .pro-btns,
+#wps>section:not(:hover) .pro-btns,
+#inner-offers>section:not(:hover) .pro-btns {
+    animation: slideToggle2 0.5s ease-in-out 1 forwards;
+}
+
+@keyframes slideToggle1 {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-120px);
+    }
+}
+
+@keyframes slideToggle2 {
+    from {
+        transform: translateY(-120px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
+
+/* !Hide */
+#products>section .condition,
+#products>section .thumbnails,
+#products>section .description,
+#products>section .keywords,
+#inner-offers>section .condition,
+#inner-offers>section .thumbnails,
+#inner-offers>section .description,
+#inner-offers>section .keywords,
+#wps>section .condition,
+#wps>section .thumbnails,
+#wps>section .description,
+#wps>section .keywords {
+    display: none;
+}
+
+/* end cards */
+
+/*
+* =======================
+*     end content 
+* =======================
+*/

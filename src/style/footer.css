@@ -1,0 +1,40 @@
+/* 
+! =======================
+!     start wrapper 
+! =======================
+*/
+footer {
+    grid-area: footer;
+    width: 100%;
+    height: 50px;
+    background-color: var(--white-color);
+    border-top: 1px solid var(--border-color);
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: normal;
+    color: var(--sub-text-color);
+}
+
+
+/* 
+! =======================
+!     end wrapper 
+! =======================
+*/
+
+
+
+/* 
+* =======================
+*     start content 
+* =======================
+*/
+footer a {
+    color: #9a57e8;
+}
+
+/*
+* =======================
+*     end content 
+* =======================
+*/

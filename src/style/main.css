@@ -1,0 +1,197 @@
+/* START Vars */
+:root {
+    --main-font: 'Roboto', helvetica, Arial, sans-serif;
+    --radius: 3px;
+    --main-text-color: #17181a;
+    --sub-text-color: #5a5f63;
+    --hint-color: #ffa700;
+    /* --sub-background-color: #ffce00; */
+    --main-background-color: #9A57E8;
+    --sub-background-color: #ac71f0;
+    --border-color: #f3f3f3;
+    --white-color: #fff;
+    --linear-gradient2: linear-gradient(to bottom, #ffce00, #ffa700);
+    --linear-gradient: linear-gradient(to bottom, #ac71f0, #9a57e8);
+    --header-linear: linear-gradient(140deg, #fe7142 0%, #cb4fc2 50%, #9A57E8 75%, #53A0E8 100%);
+    --shadow: rgba(0, 9, 128, .05);
+    --success: #25b869;
+    --error: #d81d2f;
+}
+
+/* END Vars */
+
+/* *START GLOBAL */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+html,
+body {
+    font-family: var(--main-font);
+    line-height: 1.6;
+    color: var(--main-text-color);
+    background-color: var(--white-color);
+    letter-spacing: 0.4px;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+/* !remove arrows of input type number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+/* !remove datalist arrows */
+input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0px 1px var(--main-background-color);
+    border-radius: var(--radius);
+    transition: all 0.3s ease-in-out;
+}
+
+a:focus {
+    outline: none;
+}
+
+mark {
+    background-color: var(--hint-color);
+    border-radius: var(--radius);
+}
+
+button:focus {
+    outline: none;
+    /* box-shadow: 0 0 0px 1px var(--main-background-color); */
+    /* border-radius: var(--radius); */
+    /* transition: all 0.3s ease-in-out; */
+}
+
+button:active,
+a:active {
+    transform: perspective(1px) translateZ(-0.04px);
+    transition: 200ms cubic-bezier(0.12, 0.8, 0.32, 1);
+}
+
+/* *END GLOBAL */
+
+/* start main container */
+main {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 50px);
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "nav"
+        "header"
+        "products"
+        "footer"
+    ;
+    justify-content: center;
+    align-content: center;
+}
+
+/* end main container */
+
+/* !start notification */
+#notify {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    right: 0;
+    max-width: 280px;
+    margin: auto;
+    background: var(--success);
+    border-radius: var(--radius);
+    z-index: 100;
+    text-transform: capitalize;
+    animation: notify 0.3s cubic-bezier(0.03, 0.68, 0, 1.53) 1 forwards;
+    display: none;
+}
+
+#notify p {
+    text-align: center;
+    padding: 8px;
+    color: var(--white-color);
+}
+
+@keyframes notify {
+    from {
+        opacity: 0;
+        transform: translateY(0px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(120px);
+    }
+}
+
+/* !end notification */
+
+/* hotline */
+#hotline {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 5px;
+    right: 5px;
+    background-color: #24D366;
+    z-index: 200;
+    border-radius: var(--radius);
+}
+
+#hotline a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#hotline a svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    fill: var(--white-color);
+}
